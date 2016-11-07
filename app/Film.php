@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
+    use Searchable;
+
     public $table = 'film';
 
     protected $primaryKey = 'film_id';
