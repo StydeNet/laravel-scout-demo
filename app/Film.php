@@ -19,4 +19,15 @@ class Film extends Model
     {
         return $this->belongsToMany(Actor::class, 'film_actor');
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'film_id' => $this->film_id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'actors' => $this->actors->implode('name', ', '),
+            'release_year' => $this->release_year,
+        ];
+    }
 }

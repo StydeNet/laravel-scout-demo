@@ -11,4 +11,9 @@ class Actor extends Model
     protected $primaryKey = 'actor_id';
 
     public $timestamps = false;
+
+    public function getNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
